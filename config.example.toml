@@ -1,0 +1,6 @@
+drHost = "https://mydomain.tld"
+drPort = "5000"
+drUser = "user"
+drPass = "pass"
+drRegs = ["user1/repo1", "user2/repo2", "user2/repo3"] # Empty this repositories
+drImgCount = 25 # Don`t remove last 25 images

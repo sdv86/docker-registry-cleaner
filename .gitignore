@@ -1,0 +1,6 @@
+.idea
+config.toml
+tst
+tagname
+digests
+docker-registry-cleaner
