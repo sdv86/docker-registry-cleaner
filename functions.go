@@ -15,13 +15,13 @@ const (
 	drTagsList   = "/tags/list?n=1000"
 )
 
-// Tag ...
+// Tag name
 type Tag string
 
-// Repo ...
+// Repo name or registry image path
 type Repo string
 
-// Tags ...
+// Tags contains image tags list
 type Tags struct {
 	Name string
 	Tags []Tag `json:"tags"`

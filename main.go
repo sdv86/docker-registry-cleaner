@@ -15,7 +15,6 @@ func main() {
 	var wg sync.WaitGroup
 
 	// Loop over all image repositories
-
 	for _, registry := range repoList.Repositories {
 		ichan := make(chan ImageDigest)
 		t := ListTags(c, string(registry))
@@ -55,7 +54,7 @@ func main() {
 		for _, date := range mySlice[:x] {
 			dateString := strconv.Itoa(date)
 			if len(mySlice) > c.DrImgCount {
-				DelManifest(c, registry, img.Digests.Digest[dateString])
+				DelManifest(c, string(registry), img.Digests.Digest[dateString])
 				fmt.Printf("    image was deleted %s \n", unixToTime(dateString))
 			}
 		}
