@@ -127,12 +127,16 @@ func GetCreationDate(c *Config, registry, tagName string) string {
 	if parseErr != nil {
 		log.Fatal(parseErr)
 	}
-	in := []byte(v1manifest.History[0].V1Compatibility)
-	var raw map[string]interface{}
-	json.Unmarshal(in, &raw)
-	// fmt.Println(" ", raw["created"])
-	ct := timeToUnix(raw["created"].(string))
-	return ct
+
+	if len(v1manifest.History) > 0 {
+		in := []byte(v1manifest.History[0].V1Compatibility)
+		var raw map[string]interface{}
+		json.Unmarshal(in, &raw)
+		ct := timeToUnix(raw["created"].(string))
+		return ct
+	}
+	log.Println("No creation time found")
+	return "nodate"
 }
 
 // GetManifest ...
